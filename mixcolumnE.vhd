@@ -9,7 +9,6 @@ Port ( i1, i2, i3, i4: in STD_LOGIC_VECTOR (7 downto 0);
 end mixcolumnE;
 
 architecture Behavioral of mixcolumnE is
-
 begin
 
 data_out(7)<=i1(6) xor i2(6) xor i2(7) xor i3(7) xor i4(7);
