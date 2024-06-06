@@ -6,7 +6,7 @@ entity AES is
         clk : in  STD_LOGIC;
         start : in  STD_LOGIC;  -- Señal de entrada para iniciar el proceso
         finalout : out  STD_LOGIC_VECTOR (7 downto 0);
-        endFlag : out  STD_LOGIC  -- Señal de salida para indicar que el proceso ha terminado
+        endFlag : out  STD_LOGIC;  -- Señal de salida para indicar que el proceso ha terminado
     );
 end AES;
 
@@ -60,7 +60,7 @@ begin
                 o7: rounds port map(r6,key6,key7,x"40",r7);
                 o8: rounds port map(r7,key7,key8,x"80",r8);
                 o9: rounds port map(r8,key8,key9,x"1b",r9);
-                o10: roundlast port map(r9,key9,x"36",fout);
+                o10: lastRound port map(r9,key9,x"36",fout);
 
                 finalout <= fout (127 downto 120);
 
