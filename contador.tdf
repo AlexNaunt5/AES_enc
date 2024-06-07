@@ -1,0 +1,11 @@
+SUBDESIGN Contador(
+    clk, reset: INPUT;
+    nextbit: OUTPUT;
+)
+VARIABLE
+    C[7..0]: dff;  -- Suficiente para contar hasta 128 (7 bits)
+BEGIN
+    C[].(clk, clrn) = (clk, !reset);
+    nextbit = (C[] == 128);
+    C[] = C[] + 1;
+END;

@@ -1,0 +1,75 @@
+SUBDESIGN MyMachine(
+    clk, reset, Send, Nextbit, Count128: INPUT;
+    Load, Busy, Shift, Resetcounter, Resettimer, increment: OUTPUT;
+)
+VARIABLE
+    M: MACHINE WITH STATES (Idle, Load, Count, Shift, Wait, s0, s1, s2);
+BEGIN
+    M.(clk, reset) = (clk, reset);
+    CASE M IS 
+        WHEN Idle =>  
+            Load = GND;
+            Busy = GND;
+            Shift = GND;
+            Resetcounter = GND; 
+            Resettimer = GND;
+            increment = GND;
+            IF (Send) THEN
+                M = Load;
+            ELSE 
+                M = Idle;
+            END IF;
+        WHEN Load =>
+            Load = VCC;
+            Busy = VCC;
+            Shift = GND;
+            Resetcounter = VCC; 
+            Resettimer = VCC;
+            M = Count;
+            increment = GND;
+        WHEN Count =>  
+            Load = GND;
+            Busy = VCC;
+            Shift = GND;
+            Resetcounter = GND; 
+            Resettimer = GND;
+            increment = GND;
+            IF (Nextbit) THEN
+                M = Shift;
+            ELSE 
+                M = Count;
+            END IF;
+        WHEN Shift =>  
+            Load = GND;
+            Busy = VCC;
+            Shift = VCC;
+            Resetcounter = GND; 
+            Resettimer = GND;
+            increment = VCC;
+            IF (Count128) THEN
+                M = Wait;
+            ELSE 
+                M = Count;
+            END IF;
+        WHEN Wait =>  
+            Load = GND;
+            Busy = GND;
+            Shift = GND;
+            Resetcounter = GND; 
+            Resettimer = GND;
+            increment = GND;
+            IF (Send) THEN
+                M = Idle;
+            ELSE 
+                M = Wait;
+            END IF;
+        WHEN OTHERS =>
+            Load = GND;
+            Busy = GND;
+            Shift = GND;
+            Resetcounter = GND; 
+            Resettimer = GND;
+            increment = GND;
+            M = Idle;
+    END CASE;
+END;

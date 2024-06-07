@@ -1,0 +1,38 @@
+SUBDESIGN ParityGener (
+    dataIn[127..0], MODE: INPUT;
+    parityBit: OUTPUT;
+)
+BEGIN
+    parityBit = (dataIn[0] xor dataIn[1] xor dataIn[2] xor dataIn[3] xor
+                 dataIn[4] xor dataIn[5] xor dataIn[6] xor dataIn[7] xor
+                 dataIn[8] xor dataIn[9] xor dataIn[10] xor dataIn[11] xor
+                 dataIn[12] xor dataIn[13] xor dataIn[14] xor dataIn[15] xor
+                 dataIn[16] xor dataIn[17] xor dataIn[18] xor dataIn[19] xor
+                 dataIn[20] xor dataIn[21] xor dataIn[22] xor dataIn[23] xor
+                 dataIn[24] xor dataIn[25] xor dataIn[26] xor dataIn[27] xor
+                 dataIn[28] xor dataIn[29] xor dataIn[30] xor dataIn[31] xor
+                 dataIn[32] xor dataIn[33] xor dataIn[34] xor dataIn[35] xor
+                 dataIn[36] xor dataIn[37] xor dataIn[38] xor dataIn[39] xor
+                 dataIn[40] xor dataIn[41] xor dataIn[42] xor dataIn[43] xor
+                 dataIn[44] xor dataIn[45] xor dataIn[46] xor dataIn[47] xor
+                 dataIn[48] xor dataIn[49] xor dataIn[50] xor dataIn[51] xor
+                 dataIn[52] xor dataIn[53] xor dataIn[54] xor dataIn[55] xor
+                 dataIn[56] xor dataIn[57] xor dataIn[58] xor dataIn[59] xor
+                 dataIn[60] xor dataIn[61] xor dataIn[62] xor dataIn[63] xor
+                 dataIn[64] xor dataIn[65] xor dataIn[66] xor dataIn[67] xor
+                 dataIn[68] xor dataIn[69] xor dataIn[70] xor dataIn[71] xor
+                 dataIn[72] xor dataIn[73] xor dataIn[74] xor dataIn[75] xor
+                 dataIn[76] xor dataIn[77] xor dataIn[78] xor dataIn[79] xor
+                 dataIn[80] xor dataIn[81] xor dataIn[82] xor dataIn[83] xor
+                 dataIn[84] xor dataIn[85] xor dataIn[86] xor dataIn[87] xor
+                 dataIn[88] xor dataIn[89] xor dataIn[90] xor dataIn[91] xor
+                 dataIn[92] xor dataIn[93] xor dataIn[94] xor dataIn[95] xor
+                 dataIn[96] xor dataIn[97] xor dataIn[98] xor dataIn[99] xor
+                 dataIn[100] xor dataIn[101] xor dataIn[102] xor dataIn[103] xor
+                 dataIn[104] xor dataIn[105] xor dataIn[106] xor dataIn[107] xor
+                 dataIn[108] xor dataIn[109] xor dataIn[110] xor dataIn[111] xor
+                 dataIn[112] xor dataIn[113] xor dataIn[114] xor dataIn[115] xor
+                 dataIn[116] xor dataIn[117] xor dataIn[118] xor dataIn[119] xor
+                 dataIn[120] xor dataIn[121] xor dataIn[122] xor dataIn[123] xor
+                 dataIn[124] xor dataIn[125] xor dataIn[126] xor dataIn[127]) xor MODE;
+END;

@@ -1,0 +1,15 @@
+SUBDESIGN Contador10(
+    clk, reset, increment: INPUT;
+    count128: OUTPUT;
+)
+VARIABLE
+    C[7..0]: dff;  -- Suficiente para contar hasta 128 (7 bits)
+BEGIN
+    C[].(clk, clrn) = (clk, !reset);
+    count128 = (C[] == 128);
+    IF (increment) THEN
+        C[] = C[] + 1;
+    ELSE
+        C[] = C[];
+    END IF;
+END;
